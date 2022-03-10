@@ -98,7 +98,7 @@ class RecipeController {
 
     console.log("controller result showRecipe: ", result);
 
-    return;
+    return result;
   }
 
   async showUserRecipe(req, res, next) {
@@ -107,7 +107,7 @@ class RecipeController {
 
     console.log("controller result showUserRecipe: ", result);
 
-    return;
+    return result;
   }
 
 }
