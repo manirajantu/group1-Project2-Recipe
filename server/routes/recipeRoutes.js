@@ -2,6 +2,7 @@
 
 // Create a new set of routes for protected
 const express = require("express");
+const res = require("express/lib/response");
 const router = express.Router(); // create route
 
 // Import Recipe controller
@@ -11,17 +12,32 @@ const recipeController = new RecipeController();
 
 router.route("/recipe/showIngredient").get((request, response) => {
   recipeController.showIngredient();
-  response.send("You have called the showIngredient route!");
+  then(showIngredient => {
+    res.status(200).json(showIngredient)
+  })
+  .catch(error => {
+    res.status(500).json({ message: 'unable to retrieve data'})
+  })
 });
 
 router.route("/recipe/showRecipe").get((request, response) => {
   recipeController.showRecipe();
-  response.send("You have called the showRecipe route!");
+  then(showRecipe => {
+    res.status(200).json(showRecipe)
+  })
+  .catch(error => {
+    res.status(500).json({ message: 'unable to retrieve data'})
+  })
 });
 
 router.route("/recipe/showUserRecipe").get((request, response) => {
   recipeController.showUserRecipe();
-  response.send("You have called the showUserRecipe route!");
+  then(showUserRecipe => {
+    res.status(200).json(showUserRecipe)
+  })
+  .catch(error => {
+    res.status(500).json({ message: 'unable to retrieve data'})
+  })
 });
 
 router
